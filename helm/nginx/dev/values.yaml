@@ -1,0 +1,29 @@
+replicaCount: 1
+namespace: dev-proxy
+image:
+  repository: gcr.io/planar-airship-434723-g8/nginx-proxy
+  pullPolicy: IfNotPresent
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 80
+
+config:
+  nginxConf: |
+    events {}
+
+    http {
+        server {
+            listen 80;
+            location / {
+                proxy_pass http://wordpress-app.wpapp.svc.cluster.local:80;
+                proxy_set_header Host $http_host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+            }
+        }
+    }
+
+
+
