@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: nginx-proxy
+        foo: bar
     spec:
       containers:
         - name: nginx-proxy
