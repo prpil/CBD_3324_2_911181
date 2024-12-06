@@ -1,7 +1,7 @@
 replicaCount: 1
 namespace: proxy
 image:
-  repository: gcr.io/planar-airship-434723-g8/nginx-proxy
+  repository: gcr.io/arctic-thought-443823-f6/nginx-proxy
   pullPolicy: IfNotPresent
 service:
   type: LoadBalancer
