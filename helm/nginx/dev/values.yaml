@@ -10,8 +10,6 @@ service:
 
 config:
   nginxConf: |
-    events {}
-
     http {
         server {
             listen 80;
