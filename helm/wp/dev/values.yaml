@@ -4,6 +4,7 @@ wp:
     app: wp
     env: dev
     stack: wordpress
+    id: c0911181
   image:
     repository: wordpress
     tag: latest
