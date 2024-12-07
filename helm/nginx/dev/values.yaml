@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 namespace: dev-proxy
 image:
   repository: gcr.io/arctic-thought-443823-f6/nginx-proxy
