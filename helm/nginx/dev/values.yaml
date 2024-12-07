@@ -1,8 +1,7 @@
-replicaCount: 2
+replicaCount: 1
 namespace: dev-proxy
 image:
   repository: gcr.io/arctic-thought-443823-f6/nginx-proxy
-  pullPolicy: IfNotPresent
 service:
   type: LoadBalancer
   port: 80
@@ -10,20 +9,7 @@ service:
 
 config:
   nginxConf: |
-  events {}
-
-    http {
-        server {
-            listen 80;
-            location / {
-                proxy_pass http://wordpress-app.wpapp.svc.cluster.local:80;
-                proxy_set_header Host $http_host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
-            }
-        }
-    }
+    events {}
 
     http {
         server {
