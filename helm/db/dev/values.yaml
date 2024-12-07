@@ -3,6 +3,7 @@ db:
     app: db
     env: dev
     stack: wordpress
+    id: c0911181
   image:
     repository:  mariadb
     tag: 10.6.4-focal
